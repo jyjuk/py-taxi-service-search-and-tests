@@ -26,6 +26,7 @@ class TestSearchForms(TestCase):
             reverse("taxi:driver-list"), {"username": "Ivan"}
         )
         self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "Ivan")
 
     def test_car_search_form(self):
         response = self.client.get(
